@@ -11,17 +11,20 @@ const store = createXRStore()
 
 function MonCanvas() {
     const [red, setRed] = useState(false)
-    return <>
-      <button onClick={() => store.enterAR()}>Enter AR</button>
-      <Canvas>
-        <XR store={store}>
-          <mesh pointerEventsType={{ deny: 'grab' }} onClick={() => setRed(!red)} position={[0, 1, -1]}>
-            <boxGeometry />
-            <meshBasicMaterial color={red ? 'red' : 'blue'} />
-          </mesh>
-        </XR>
-      </Canvas>
+
+  return (
+    <>
+    <button onClick={() => store.enterAR()}>Enter AR</button>
+    <Canvas>
+      <XR store={store}>
+        <mesh pointerEventsType={{ deny: 'grab' }} onClick={() => setRed(!red)} position={[0, 1, -1]}>
+          <boxGeometry />
+          <meshBasicMaterial color={red ? 'red' : 'blue'} />
+        </mesh>
+      </XR>
+    </Canvas>
     </>
+  )
 }
 
 export default MonCanvas
